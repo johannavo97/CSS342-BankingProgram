@@ -1,7 +1,5 @@
 #pragma once
-#include <iostream>
-#include <cmath>
-#include <string>
+#include "BankAccount.h"
 using namespace std;
 
 class BSTree
@@ -10,9 +8,9 @@ class BSTree
 		BSTree();
 		~BSTree();
 
-		bool Insert(Account *acc);
+		bool Insert(BankAccount *acc);
 
-		bool Retrieve(const int &id, Account * &acc) const;
+		bool Retrieve(const int &id, BankAccount * &acc) const;
 
 		void Display() const;
 		void Empty();
@@ -21,7 +19,7 @@ class BSTree
 	private:
 		struct Node
 		{
-			Account *pAcct;
+			BankAccount *pAcct;
 			Node *right;
 			Node *left;
 		};
