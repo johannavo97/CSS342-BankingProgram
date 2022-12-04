@@ -34,7 +34,7 @@ void BankAccount::setLastName(string lname)
 
 void BankAccount::setFirstName(string fname)
 {
-	this->firstname = lname;
+	this->firstname = fname;
 }
 
 void BankAccount::setID(string newID)
