@@ -29,12 +29,12 @@ int BankAccount::getLastName() const
 
 void BankAccount::setLastName(string last)
 {
-	this->lastname = lname;
+	this->lastname = last;
 }
 
 void BankAccount::setFirstName(string first)
 {
-	this->firstname = fname;
+	this->firstname = first;
 }
 
 void BankAccount::setID(string newID)
