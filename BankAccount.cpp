@@ -26,3 +26,18 @@ int BankAccount::getLastName() const
 {
 	return accountID;
 }
+
+void BankAccount::setLastName(string lname)
+{
+	this->lastname = lname;
+}
+
+void BankAccount::setFirstName(string fname)
+{
+	this->firstname = lname;
+}
+
+void BankAccount::setID(string id)
+{
+	this->accountID = id;
+}
