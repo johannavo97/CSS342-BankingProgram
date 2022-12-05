@@ -32,7 +32,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id;
             	string last, first;
             	inFile >> last >> first >> id;
-            	Transaction open("Open", last, first, id);
+            	Transaction openAccount("Open", last, first, id);
             	txns.push(txn);
             }
             else if(txntype=="W")
