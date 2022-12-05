@@ -1,3 +1,8 @@
+// Testing this structure?
+//
+//
+//
+
 #pragma once
 #include <iostream>
 #include <queue>
@@ -27,7 +32,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id;
             	string last, first;
             	inFile >> last >> first >> id;
-            	Transaction txn(txntype, last, first, id);
+            	Transaction open("Open", last, first, id);
             	txns.push(txn);
             }
             else if(txntype=="W")
@@ -35,7 +40,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id, fund, amt;
             	inFile >> id >> amt;
             	fund=getIDs(id);
-            	Transaction txn(txntype, id, fund, amt);
+            	Transaction withdraw("Withdraw", id, fund, amt);
             	txns.push(txn);
             }
             else if(txntype=="D")
@@ -43,7 +48,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id, fund, amt;
             	inFile >> id >> amt;
             	fund=getIDs(id);
-            	Transaction txn(txntype, id, fund, amt);
+            	Transaction deposit("Deposit", id, fund, amt);
             	txns.push(txn);
             }
             else if(txntype=="T")
@@ -52,7 +57,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	inFile >> id1 >> amt >> id2;
             	fund1=getIDs(id1);
             	fund2=getIDs(id2);
-            	Transaction txn(txntype, id1, fund1, amt, id2, fund2);
+            	Transaction transfer("Transfer", id1, fund1, amt, id2, fund2);
             	txns.push(txn);
             }
             else if(txntype=="H")
@@ -60,7 +65,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id, fund;
             	inFile >> id;
 
-            	Transaction txn(txntype, id);
+            	Transaction display("Display", id);
             	txns.push(txn);
             }
 
