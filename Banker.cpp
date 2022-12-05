@@ -88,6 +88,8 @@ bool Banker::PrintOutBalances()
 	//      Will print out all account balances
 }
 
+// =================================== Helper Functions ===================================
+
 int Banker::getIDs(int &id)
 {
 	int temp = id;
