@@ -65,7 +65,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
             	int id, fund;
             	inFile >> id;
 
-            	Transaction display("Display", id);
+            	Transaction history("History", id);
             	txns.push(txn);
             }
 
