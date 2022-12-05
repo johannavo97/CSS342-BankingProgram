@@ -97,7 +97,7 @@ bool Banker::PrintOutBalances()
 
 int Banker::getIDs(int &id)
 {
-	int temp = id;
+    int temp = id;
     id/=10;
     return temp%10;
 }
