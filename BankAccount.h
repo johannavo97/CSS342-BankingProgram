@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond","Short-Term Bond",
+				"500 Index Fund","Capital Value Fund","Growth Equity Fund","Growth Index Fund",
+				"Value Fund","Value Stock Index"};
+
 class BankAccount
 {
 	public:
@@ -24,9 +28,12 @@ class BankAccount
 		void setLastName(string last);
 		void setID(int newID);
 
+		void printAccountHistory();
+
 		// =============== Operation Overloading ===================
 
 	private:
+		Fund funds[10];
 		string lastname;
 		string firstname;
 		int id;
