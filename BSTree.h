@@ -24,4 +24,6 @@ class BSTree
 			Node *left;
 		};
 		Node *root;
+		// delete all information in BSTree
+		void clear(Node* node)
 };
