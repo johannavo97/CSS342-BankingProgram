@@ -29,7 +29,7 @@ bool Banker::readTransactionsFromFile(string fileName)
         while(!inFile.eof())
         {
             getline(inFile, temp);
-            txns.push(t);
+            txns.push(temp);
         }
         inFile.close();
     }
