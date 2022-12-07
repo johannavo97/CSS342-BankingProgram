@@ -40,7 +40,7 @@ int BankAccount::getFirstName() const
 	return firstname;
 }
 
-int BankAccount::getLastName() const
+int BankAccount::getID() const
 {
 	return accountID;
 }
