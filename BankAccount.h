@@ -5,9 +5,9 @@
 using namespace std;
 
 const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond",
-				"Short-Term Bond","500 Index Fund","Capital Value Fund",
-				"Growth Equity Fund","Growth Index Fund",
-				"Value Fund","Value Stock Index"};
+								"Short-Term Bond","500 Index Fund","Capital Value Fund",
+								"Growth Equity Fund","Growth Index Fund",
+								"Value Fund","Value Stock Index"};
 
 class BankAccount
 {
@@ -35,6 +35,14 @@ class BankAccount
 		void printSingleFundHistory();
 
 		bool addToFundHistory(int fundID, string txn);
+
+		// bool deposit(int amount, int fundID);
+		// bool withdraw(int amount, int fundID);
+		// bool transferFunds(int fund1, int amount, int fund2);
+
+
+		// bool coveringFunds(int fund1, int amount, int fund2, string txn);
+		// bool coveringFundsInSameAccount(int fund1, int secondaryFund, int amount, int fund2, string txn);
 
 		// =============== Operation Overloading ===================
 
