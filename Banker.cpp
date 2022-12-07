@@ -48,7 +48,7 @@ bool Banker::processTransactions()
 	
 	
 // 	string temp;
-// 	while(txns != null)
+// 	while(!txns.empty())
 // 	{
 // 		temp = txns.front();
 // 		x.pop();
