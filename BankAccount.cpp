@@ -1,9 +1,10 @@
 #include "BankAccount.h"
+#include "Fund.h"
 #include <iostream>
 
 // const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond","Short-Term Bond",
-// 								"500 Index Fund","Capital Value Fund","Growth Equity Fund","Growth Index Fund",
-// 								"Value Fund","Value Stock Index"};
+// 				"500 Index Fund","Capital Value Fund","Growth Equity Fund","Growth Index Fund",
+// 				"Value Fund","Value Stock Index"};
 
 // ============== Constructor/Destructors =============
 
@@ -16,7 +17,7 @@ BankAccount::BankAccount(string last, string first, int id)
 	this->accountID = id;
 	for (int i = 0; i < 10; i < i++)
 	{
-		funds[i].setFundName(FUND_TYPES[i]);
+		funds[i].setFundType(FUND_TYPES[i]);
 		funds[i].setFundBalance(0);
 	}
 }
@@ -56,7 +57,22 @@ void BankAccount::setID(string id)
 	this->accountID = id;
 }
 
-// =============== Print BankAccount History ==============
+int BankAccount::getAccountBalance() const
+{
+	int temp;
+	for(int i = 0; i < 10; i++)
+	{
+		temp+=funds[i].getBalance();
+	}
+	return temp;
+}
+
+Fund BankAccount::getFund(int fundID) const
+{
+	return this->funds[fundID];
+}
+
+// =============== Print Histories ==============
 
 void BankAccount::printAccountHistory()
 {
@@ -66,6 +82,20 @@ void BankAccount::printAccountHistory()
 	{
 		funds[i].printFundHistory();
 	}
+}
+
+void BankAccount::printSingleFundHistory(int fundID)
+{	
+	cout << "Transaction History for " << this->firstname << this->lastname << " " << funds[fundID] << ": $" << funds[fundID].getBalance() << "\n";
+	funds[fundID].printFundHistory(); 
+}
+
+// =============== Add to history ==========================
+
+bool BankAccount::addToFundHistory(int fundID, string txn)
+{
+	funds[fundID].addToHistory(string txn);
+	return true;
 }
 
 // =============== Operation Overloading ===================
