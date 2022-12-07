@@ -6,6 +6,9 @@
 // 								"500 Index Fund","Capital Value Fund","Growth Equity Fund","Growth Index Fund",
 // 								"Value Fund","Value Stock Index"};
 
+bool BankAccount::coveringFundsInSameAccount(int fund1, int secondaryFund, int amount, int fund2, string txn);
+bool BankAccount::coveringFunds(int fund1, int amount, int fund2, string txn);
+
 // ============== Constructor/Destructors =============
 
 BankAccount::BankAccount() : last(""), first(""), id(0) {}
