@@ -10,6 +10,7 @@
 #include <string>
 #include "BSTree.h"
 #include "Transaction.h"
+#include "BankAccount.h"
 #include "Banker.h"
 using namespace std;
 
@@ -40,38 +41,102 @@ bool Banker::readTransactionsFromFile(string fileName)
     return true;
 }
 
-// =========================================== TO DO ======================================
+// // =================================================================================
 
-bool Banker::processTransactions()
-{
-//       Will process all transactions in the queue
+// void Banker::processTransactions()
+// {
+// //  Processes all transactions in the queue
 	
 	
-// 	string temp;
+// 	string transaction;
 // 	while(!txns.empty())
 // 	{
-// 		temp = txns.front();
-// 		x.pop();
-// 		stringstream s(temp);
-// 		string a;
-// 		s >> a;
-// 		if(a=="O")
+// 		transaction = txns.front();
+// 		txns.pop();
+// 		stringstream s(transaction);
+// 		string typeOfTxn;
+// 		s >> typeOfTxn;
+// 		if(typeOfTxn=="O")
 // 		{
+// 			int id;
+// 			string last, first;
+// 			s >> last >> first >> id;
+// 			BankAccount *bAcc(last, first, id);
+// 			accounts.Insert(bAcc);
+
 // 		}
-// 		else if(a == "D")
-//		{
-//		}
+// 		else if(typeOfTxn == "D")
+// 		{
+// 			int id, fundID, amount;
+// 			s >> id >> amount;
+// 			fundID = getIDs(id);
+// 			BankAccount *bAcc;
+// 			if(accounts.Retrieve(id, bAcc))
+// 			{
+// 				bAcc->deposit(amount, fundID, transaction);
+// 			}
+// 		}
+// 		else if(typeOfTxn == "W")
+// 		{
+// 			int id, fundID, amount;
+// 			s >> id >> amount;
+// 			fundID = getIDs(id);
+// 			BankAccount *bAcc;
+// 			if(accounts.Retrieve(id, bAcc))
+// 			{
+// 				bAcc->deposit(amount, fundID, transaction);
+// 			}
+// 		}
+// 		else if(typeOfTxn == "T")
+// 		{
+// 			int id1, fund1, amount, id2, fund2;
+// 			s >> id1 >> amount >> id2;
+// 			fund1 = getIDs(id1);
+// 			fund2 = getIDs(id2)
+// 			BankAccount *bAcc1, *bAcc2;
+// 			if(id1!=id2)
+// 			{
+// 				if(accounts.Retrieve(id1, bAcc1) && accounts.Retrieve(id2, bAcc2))
+// 				{
+// 					bool transferPossible = bAcc1.withdraw(amount, fund1, transaction);
+// 					if(TransferPossible)
+// 					{
+// 						bAcc2->deposit(amount, fund2, transaction);
+// 					}
+// 				}
+// 			}
+// 			else
+// 			{
+// 				if(accounts.Retrieve(id1, bAcc1))
+// 				{
+// 					bAcc1->transferFunds(fund1, amount, fund2, transaction)
+// 				}
+// 			}
+// 		}
+// 		else if(typeOfTxn == "H")
+// 		{
+// 			int id;
+// 			s >> id;
+// 			BankAccount *bAcc;
+// 			if(accounts.Retrieve(id, bAcc))
+// 			{
+// 				bAcc->printAccountHistory();
+// 			}
+// 		}
 // 	}                          
-}
+// }
 
-// =========================================== TO DO ======================================
+// // =======================================================================================
 
-bool Banker::printOutBalances()
-{
-	//      Will print out all account balances
-}
+// bool Banker::printOutBalances()
+// {
+// 	// Prints out all account balances
 
-// =================================== Helper Functions ===================================
+// 	cout << "Processing Done. Final Balances\n";
+// 	accounts.Display();
+// }
+
+// // =================================== Helper Functions ===================================
 
 int Banker::getIDs(int &id)
 {
