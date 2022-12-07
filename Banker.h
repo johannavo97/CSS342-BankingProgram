@@ -19,7 +19,7 @@ class Banker
 		~Banker();
 
 		bool readTransactionsFromFile();
-		bool processTXNs();
+		bool processTransactions();
 		bool printOutBalances();
 
 		int getIDs(int &id);
