@@ -67,9 +67,19 @@ int BankAccount::getAccountBalance() const
 	return temp;
 }
 
-Fund BankAccount::getFund(int fundID) const
+// Fund BankAccount::getFund(int fundID) const
+// {
+// 	return this->funds[fundID];
+// }
+
+string BankAccount::getSubAccName(int fundID) const
 {
-	return this->funds[fundID];
+	return this->funds[fundID].getType();
+}
+
+int BankAccount::getSubAccBalance(int fundID) const
+{
+	return this->funds[fundID].getBalance();
 }
 
 // ****** Depositing money into fund *******
@@ -166,19 +176,19 @@ void BankAccount::printAccountHistory()
 	}
 }
 
-void BankAccount::printSingleFundHistory(int fundID)
-{	
-	cout << "Transaction History for " << this->firstname << this->lastname << " " << funds[fundID] << ": $" << funds[fundID].getBalance() << "\n";
-	funds[fundID].printFundHistory(); 
-}
+// void BankAccount::printSingleFundHistory(int fundID)
+// {	
+// 	cout << "Transaction History for " << this->firstname << this->lastname << " " << funds[fundID] << ": $" << funds[fundID].getBalance() << "\n";
+// 	funds[fundID].printFundHistory(); 
+// }
 
 // =============== Add to history ==========================
 
-bool BankAccount::addToFundHistory(int fundID, string txn)
-{
-	funds[fundID].addToHistory(string txn);
-	return true;
-}
+// bool BankAccount::addToFundHistory(int fundID, string txn)
+// {
+// 	funds[fundID].addToHistory(string txn);
+// 	return true;
+// }
 
 // =============== Operation Overloading ===================
 
