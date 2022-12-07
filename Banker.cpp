@@ -15,7 +15,7 @@ using namespace std;
 
 int Banker::getIDs(int &id);
 
-bool Banker::ReadTXNsFromFile(string fileName)
+bool Banker::readTransactionsFromFile(string fileName)
 {
     string temp;
     ifstream inFile;
@@ -39,7 +39,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
 
 // =========================================== TO DO ======================================
 
-bool Banker::ProcessTXNs()
+bool Banker::processTransactions()
 {
 //       Will process all transactions in the queue
 	
@@ -63,7 +63,7 @@ bool Banker::ProcessTXNs()
 
 // =========================================== TO DO ======================================
 
-bool Banker::PrintOutBalances()
+bool Banker::printOutBalances()
 {
 	//      Will print out all account balances
 }
