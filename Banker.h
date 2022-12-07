@@ -18,7 +18,7 @@ class Banker
 		Banker();
 		~Banker();
 
-		bool ReadTXNsFromFile();
+		queue<string> ReadTXNsFromFile();
 		bool ProcessTXNs();
 		bool PrintOutBalances();
 
