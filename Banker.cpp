@@ -42,6 +42,23 @@ bool Banker::ReadTXNsFromFile(string fileName)
 bool Banker::ProcessTXNs()
 {
 //       Will process all transactions in the queue
+	
+	
+// 	string temp;
+// 	while(txns != null)
+// 	{
+// 		temp = txns.front();
+// 		x.pop();
+// 		stringstream s(temp);
+// 		string a;
+// 		s >> a;
+// 		if(a=="O")
+// 		{
+// 		}
+// 		else if(a == "D")
+//		{
+//		}
+// 	}                          
 }
 
 // =========================================== TO DO ======================================
