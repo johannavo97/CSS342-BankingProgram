@@ -15,60 +15,19 @@ using namespace std;
 
 int Banker::getIDs(int &id);
 
-bool Banker::ReadTXNsFromFile(string fileName)
+queue<string> Banker::ReadTXNsFromFile(string fileName)
 {
-    ifsteam inFile;
+    queue<string> transactions;
+    string tempt;
+    ifstream inFile;
     inFile.open(fileName);
     if(inFile.is_open())
     {
+
         while(!inFile.eof())
         {
-
-            string txntype;
-            inFile >> txntype;
-
-            if(txntype=="O")
-            {
-            	int id;
-            	string last, first;
-            	inFile >> last >> first >> id;
-            	Transaction openAccount("Open", last, first, id);
-            	txns.push(txn);
-            }
-            else if(txntype=="W")
-            {
-            	int id, fund, amt;
-            	inFile >> id >> amt;
-            	fund=getIDs(id);
-            	Transaction withdraw("Withdraw", id, fund, amt);
-            	txns.push(txn);
-            }
-            else if(txntype=="D")
-            {
-            	int id, fund, amt;
-            	inFile >> id >> amt;
-            	fund=getIDs(id);
-            	Transaction deposit("Deposit", id, fund, amt);
-            	txns.push(txn);
-            }
-            else if(txntype=="T")
-            {
-            	int id1, fund1, amt, id2, fund2;
-            	inFile >> id1 >> amt >> id2;
-            	fund1=getIDs(id1);
-            	fund2=getIDs(id2);
-            	Transaction transfer("Transfer", id1, fund1, amt, id2, fund2);
-            	txns.push(txn);
-            }
-            else if(txntype=="H")
-            {
-            	int id, fund;
-            	inFile >> id;
-
-            	Transaction history("History", id);
-            	txns.push(txn);
-            }
-
+            getline(inFile, temp);
+            transactions.push(t);
         }
         inFile.close();
     }
@@ -76,7 +35,7 @@ bool Banker::ReadTXNsFromFile(string fileName)
     {
         cout << "File: " << fileName << " not found.";
     }
-    return true;
+    return transactions;
 }
 
 // =========================================== TO DO ======================================
