@@ -25,16 +25,20 @@ class BankAccount
 		string getFirstName() const;
 		int getID() const;
 		int getAccountBalance() const;
-		Fund getFund(int fundID) const;
+	
+// 		Fund getFund(int fundID) const;
+	
+		int getSubAccName(int fundID) const;
+		string getSubAccBalance(int fundID) const;
 
 		void setFirstName(string first);
 		void setLastName(string last);
 		void setID(int newID);
 
 		void printAccountHistory();
-		void printSingleFundHistory();
+// 		void printSingleFundHistory();
 
-		bool addToFundHistory(int fundID, string txn);
+// 		bool addToFundHistory(int fundID, string txn);
 
 		// bool deposit(int amount, int fundID);
 		// bool withdraw(int amount, int fundID);
