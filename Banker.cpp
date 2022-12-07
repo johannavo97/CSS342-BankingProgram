@@ -15,10 +15,9 @@ using namespace std;
 
 int Banker::getIDs(int &id);
 
-queue<string> Banker::ReadTXNsFromFile(string fileName)
+bool Banker::ReadTXNsFromFile(string fileName)
 {
-    queue<string> transactions;
-    string tempt;
+    string temp;
     ifstream inFile;
     inFile.open(fileName);
     if(inFile.is_open())
@@ -27,7 +26,7 @@ queue<string> Banker::ReadTXNsFromFile(string fileName)
         while(!inFile.eof())
         {
             getline(inFile, temp);
-            transactions.push(t);
+            txns.push(t);
         }
         inFile.close();
     }
@@ -35,7 +34,7 @@ queue<string> Banker::ReadTXNsFromFile(string fileName)
     {
         cout << "File: " << fileName << " not found.";
     }
-    return transactions;
+    return true;
 }
 
 // =========================================== TO DO ======================================
