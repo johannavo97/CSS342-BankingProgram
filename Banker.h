@@ -18,14 +18,14 @@ class Banker
 		Banker();
 		~Banker();
 
-		queue<string> ReadTXNsFromFile();
-		bool ProcessTXNs();
-		bool PrintOutBalances();
+		bool readTransactionsFromFile();
+		bool processTXNs();
+		bool printOutBalances();
 
 		int getIDs(int &id);
 
 	private:
 		BSTree accounts;
-		queue<Transaction> txns;
+		queue<string> txns;
 
 }
