@@ -13,6 +13,9 @@
 #include "Banker.h"
 using namespace std;
 
+Banker::Banker() {}
+Banker::~Banker() {}
+
 int Banker::getIDs(int &id);
 
 bool Banker::readTransactionsFromFile(string fileName)
