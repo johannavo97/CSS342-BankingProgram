@@ -3,7 +3,7 @@
 // Created on 12-07-22
 // A prat of Program 5 Jolly Banker
 
-#progma once
+#pragma once
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -33,4 +33,4 @@ class Funds
         string history[];
 
 
-}
+};
