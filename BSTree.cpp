@@ -5,6 +5,7 @@
 #include "BSTree.h"
 #include <fstream>
 
+// constructor sets root to null
 BSTree::BSTree() { root = nullptr; }
 BSTree::~BSTree() { clear(root); }
 
@@ -12,23 +13,26 @@ BSTree::~BSTree() { clear(root); }
 bool BSTree::Insert(BankAccount *accInsert)
 {
     int insertAccountID = accInsert->getID();
+    //check valid ID Number 
     if (insertAccountID < 1000 || insertAccountID > 9999)
     {
         cerr << "ERROR: Account ID Number Not Valid" << endl;
         return false;
     }
 
-    if (root == NULL)
+    // Base case or if empty
+    if (root == nullptr)
     {
         root = new Node;
         root->pAcct = accInsert;
-        root->left = NULL;
-        root->right = NULL;
+        root->left = nullptr;
+        root->right = nullptr;
         return true;
     }
     else
     {
         Node *current = root;
+        // If the node has two or more account, run recursive helper
         InsertHelper(current, accInsert);
     }
     return false;
@@ -41,17 +45,17 @@ bool BSTree::Retrieve(const int &id, BankAccount *&acc) const
 
     while (!search)
     {
-        if (current != NULL && id == current->pAcct->getID())
+        if (current != nullptr && id == current->pAcct->getID())
         {
             search = true;
             acc = current->pAcct;
             return search;
         }
-        else if (current != NULL && id > current->pAcct->getID())
+        else if (current != nullptr && id > current->pAcct->getID())
         {
             current = current->right;
         }
-        else if (current != NULL && id < current->pAcct->getID())
+        else if (current != nullptr && id < current->pAcct->getID())
         {
             current = current->left;
         }
@@ -117,14 +121,15 @@ void BSTree::PrintHelper(Node *current) const{
 
 bool BSTree::InsertHelper(Node *current, BankAccount *insert)
 {
+    // If newAccount > node then start going down right side
     if (insert->getID() > current->pAcct->getID())
     {
-        if (current->right == NULL)
+        if (current->right == nullptr)
         {
             Node *insInTree = new Node();
             insInTree->pAcct = insert;
-            insInTree->left = NULL;
-            insInTree->right = NULL;
+            insInTree->left = nullptr;
+            insInTree->right = nullptr;
             current->right = insInTree;
             return true;
         }
@@ -133,6 +138,7 @@ bool BSTree::InsertHelper(Node *current, BankAccount *insert)
             return InsertHelper(current->right, insert);
         }
     }
+    // Else if newAccount < current node then start going down left side
     else if (insert->getID() < current->pAcct->getID())
     {
         if (current->left == NULL)
@@ -149,7 +155,7 @@ bool BSTree::InsertHelper(Node *current, BankAccount *insert)
             return InsertHelper(current->left, insert);
         }
     }
-    else
+    else // Displays error if account is already in the BST
     {
         cerr << "ERROR: Account " << insert->getID() << " is already open. Transaction refused." << endl;
         return false;
