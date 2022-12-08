@@ -28,4 +28,4 @@ class Banker
 		BSTree accounts;
 		queue<string> txns;
 
-}
+};
