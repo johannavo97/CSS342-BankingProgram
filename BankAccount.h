@@ -14,13 +14,9 @@ class BankAccount
 {
 	public:
 
-		// ============== Constructor/Destructors =============
-
 		BankAccount();
 		BankAccount(string last, string first, int id);
 		~BankAccount();
-
-		// ============ Accessor Functions =================
 
 		string getLastName() const;
 		string getFirstName() const;
@@ -37,6 +33,15 @@ class BankAccount
 		void setID(int newID);
 
 		void printAccountHistory();
+
+
+	private:
+		Fund funds[10];
+		string lastname;
+		string firstname;
+		int id;
+};
+
 // 		void printSingleFundHistory();
 
 // 		bool addToFundHistory(int fundID, string txn);
@@ -48,12 +53,3 @@ class BankAccount
 
 		// bool coveringFunds(int fund1, int amount, int fund2, string txn);
 		// bool coveringFundsInSameAccount(int fund1, int secondaryFund, int amount, int fund2, string txn);
-
-		// =============== Operation Overloading ===================
-
-	private:
-		Fund funds[10];
-		string lastname;
-		string firstname;
-		int id;
-};
