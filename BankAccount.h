@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include "Funds.h"
 using namespace std;
 
 const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond",
