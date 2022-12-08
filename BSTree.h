@@ -17,6 +17,7 @@ class BSTree
 		//Insert a new account 
 		bool Insert(BankAccount *acc);
 
+<<<<<<< HEAD
 		bool Retrieve(const int &id, BankAccount *&acc) const;
 		// Display information on all accounts
 		void Display() const;
@@ -37,4 +38,26 @@ class BSTree
 		bool InsertHelper(Node *cur, BankAccount *insert);
 		/// Display helper - traverses inorder
 		void PrintHelper(Node *printNode) const;
+=======
+	bool Retrieve(const int &id, BankAccount *&acc) const;
+    // Display information on all accounts
+	void Display() const;
+	void Empty(); // delete root
+	bool isEmpty() const;
+
+private:
+	struct Node
+	{
+		BankAccount *pAcct;
+		Node *right;
+		Node *left;
+	};
+	Node *root;
+	// delete all information o in BSTree
+	void clear(Node *node);
+	// Insert recursive helper - has to be AFTER Node has been declared
+	bool InsertHelper(Node *cur, BankAccount *insert);
+	/// Display helper - traverses inorder
+	void PrintHelper(Node *printNode) const;
+>>>>>>> f2cd516 (added comments)
 };
