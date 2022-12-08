@@ -29,8 +29,8 @@ class BankAccount
 	
 // 		Fund getFund(int fundID) const;
 	
-		int getSubAccName(int fundID) const;
-		string getSubAccBalance(int fundID) const;
+		string getSubAccName(int fundID) const;
+		int getSubAccBalance(int fundID) const;
 
 		void setFirstName(string first);
 		void setLastName(string last);
