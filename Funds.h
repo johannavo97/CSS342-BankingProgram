@@ -1,7 +1,7 @@
 // Funds.h
 // Minseong Na
 // Created on 12-07-22
-// A prat of Program 5 Jolly Banker
+// A part of Program 5 Jolly Banker
 
 #pragma once
 #include <iostream>
@@ -14,16 +14,20 @@ using namespace std;
 class Funds
 {
     public:
-        int getFundType();
-        int getBalance();
-        void setFundType(string FundType);
-        void setBalance(int amt);
 
-        addMoney(int amt);
-        subtractMoney(int amt);
-        addToHistory(string txn);
-        addToHistoryWithError(string txn);
-        printFundHistory();
+        Funds();
+        ~Funds();
+
+        string getFundType() const;
+        int getBalance() const;
+        void setFundType(string fundType1);
+        void setBalance(int balance1);
+
+        void addMoney(int amt);
+        void subtractMoney(int amt);
+        void addToHistory(string txn);
+        void addToHistoryWithError(string txn);
+        void printFundHistory();
         bool withdrawPossible(int amt);
 
     private:
