@@ -11,6 +11,7 @@
         "ctime": "cpp",
         "cwchar": "cpp",
         "fstream": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "iostream": "cpp"
     }
 }

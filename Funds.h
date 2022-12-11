@@ -8,6 +8,8 @@
 #include <cmath>
 #include <string>
 #include <queue>
+#include <vector>
+#include "Transactions.h"
 
 using namespace std;
 
@@ -16,25 +18,26 @@ class Funds
     public:
 
         Funds();
+        Funds(string name);
+        Funds(string name, int balance);
         ~Funds();
 
-        string getFundType() const;
+        string getFundName() const;
         int getBalance() const;
-        void setFundType(string fundType1);
+        void setFundName(string name1);
         void setBalance(int balance1);
 
-        void addMoney(int amt);
-        void subtractMoney(int amt);
-        void addToHistory(string txn);
-        void addToHistoryWithError(string txn);
+        bool addMoney(int amt);
+        bool subtractMoney(int amt);
+        bool addToHistory(string txn);
         void printFundHistory();
-        bool withdrawPossible(int amt);
+        
 
     private:
 
-        string fundType;
+        string name;
         int balance;
-        string history[];
+        vector<string> history;
 
 
 };

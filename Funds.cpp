@@ -1,69 +1,84 @@
 #include "Funds.h"
-#include <fstream>
-#include <string>
+
 
 using namespace std;
 
 Funds :: Funds()
 {
-    fundType = " ";
+    name = " ";
     balance = 0;
+}
+
+Funds :: Funds(string name1)
+{
+    name = name1;
+    balance = 0;
+}
+
+Funds :: Funds(string name1, int balance1)
+{
+    name = name1;
+    balance = balance1;
 }
 
 Funds :: ~Funds() {}
 
-Funds :: string getFundType() const
+string Funds :: getFundName() const
 {
-    return fundType;
+    return name;
 }
 
-Funds :: int getBalance() const
+int Funds :: getBalance() const
 {
     return balance;
 }
 
-Funds :: void setFundType(string fundType1)
+void Funds :: setFundName(string name1)
 {
-    fundType = fundType1;
+    name = name1;
 }
 
-Funds :: void setBalance(int balance1)
+void Funds :: setBalance(int balance1)
 {
     balance = balance1;
 }
 
-Funds :: void addMoney(int amt)
+bool Funds :: addMoney(int amt)
 {
     balance += amt;
+    return true;
 }
 
-Funds :: void subtractMoney(int amt)
+bool Funds :: subtractMoney(int amt)
 {
-    balance -= amt;
-}
-
-Funds :: void addToHistory(string txn)
-{
-    history += (txn += "\n");
-}
-
-Funds :: void addToHistoryWithError(string txn)
-{
-    history += (txn += "\n");
-}
-
-Funds :: void printHistory()
-{
-    //ofstream
-}
-
-Funds :: bool withdrawPossible(int atm)
-{
-    if(balance >= atm)
+    if(amt > balance)
     {
-        return true;
-    }else{
         return false;
+    }else{
+        balance -= amt;
+        return true;
     }
-    return false;
+    
+
 }
+
+bool Funds :: addToHistory(string txn)
+{
+    history.push_back(txn);
+    return true;
+}
+
+void Funds :: printFundHistory()
+{
+    if(history.size() <= 0)
+    {
+        cout << "No history" << endl;
+    }else{
+        for(int i = 0; i < history.size(); i++)
+        {
+            cout << history[i] << endl;
+        }
+    }
+        
+}
+
