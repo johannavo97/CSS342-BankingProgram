@@ -20,7 +20,7 @@ class Banker
 		Banker();
 		~Banker();
 
-		bool readTransactionsFromFile();
+		bool readTransactionsFromFile(string fileName);
 		bool processTransactions();
 		bool printOutBalances();
 
