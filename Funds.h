@@ -30,6 +30,7 @@ class Funds
         bool addMoney(int amt);
         bool subtractMoney(int amt);
         bool addToHistory(string txn);
+    	// bool addToHistoryWithError(string txn); // Placeholder
         void printFundHistory();
         
 
