@@ -25,8 +25,10 @@ bool BSTree::Insert(BankAccount *accInsert)
     {
         root = new Node;
         root->pAcct = accInsert;
-        root->left = nullptr;
-        root->right = nullptr;
+        
+       //Will create errors for instances w/in transaction class commented out for now - Chris
+       // root->left = nullptr;
+       // root->right = nullptr;
         return true;
     }
     else
