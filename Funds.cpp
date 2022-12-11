@@ -68,6 +68,13 @@ bool Funds :: addToHistory(string txn)
     return true;
 }
 
+// bool Fund::addToHistoryWithError(string txn)  // Placeholder. I think we need to need to include failed transactions in history too
+// {
+// 	string temp = txn + " (Failed)";
+// 	history.push_back(temp);
+// 	return true;
+// }
+
 void Funds :: printFundHistory()
 {
     if(history.size() <= 0)
