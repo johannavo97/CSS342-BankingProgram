@@ -5,9 +5,6 @@
 
 #pragma once
 #include <iostream>
-#include <cmath>
-#include <queue>
-#include <string>
 #include "Funds.h"
 #include "BankAccount.h"
 #include "BSTree.h"
@@ -18,7 +15,7 @@ class Transactions
 public:
 
 	//Gathers account information from banker and creates account instance which is inserted into BSTree
-	bool openAccount(const string firstName, const string lastName, const int accountId);
+	bool openAccount(BSTree::Node* headNode, const string firstName, const string lastName, const int accountId);
 	//Deposits funds into given fund type from an account
 	bool deposit(BankAccount* account, int fundType, int dollarAmount);
 	//Withdraws funds from given fund type from an account
@@ -27,4 +24,7 @@ public:
 	bool transfer(BankAccount* accountIdOne, int accountOneFund, BankAccount* accountIdtwo, int accountTwoFund, int dollarAmount);
 	//Adds the transaction string to indidivdual funds 
 	bool addToHistory(BankAccount *accountId, int fundType, string transaction);
+
+private: 
+	BSTree accountBST;
 };
