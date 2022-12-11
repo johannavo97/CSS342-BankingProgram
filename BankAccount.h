@@ -36,7 +36,7 @@ class BankAccount
 
 
 	private:
-		Fund funds[10];
+		Funds funds[10];
 		string lastname;
 		string firstname;
 		int id;
