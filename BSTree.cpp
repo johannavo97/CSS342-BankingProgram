@@ -16,7 +16,7 @@ bool BSTree::Insert(BankAccount *accInsert)
     //check valid ID Number 
     if (insertAccountID < 1000 || insertAccountID > 9999)
     {
-        cerr << "ERROR: Account ID Number Not Valid" << endl;
+        cerr << "ERROR: Account ID Number "<< insertAccountID <<" is not Valid" << endl;
         return false;
     }
 
@@ -25,10 +25,6 @@ bool BSTree::Insert(BankAccount *accInsert)
     {
         root = new Node;
         root->pAcct = accInsert;
-        
-       //Will create errors for instances w/in transaction class commented out for now - Chris
-       // root->left = nullptr;
-       // root->right = nullptr;
         return true;
     }
     else
