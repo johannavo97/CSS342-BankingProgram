@@ -1,8 +1,6 @@
-// Testing this structure?
-//
-//
-//
-
+// William Bach
+// CSS342 Fall22
+// Program 5 - Jolly Banker
 #pragma once
 #include <iostream>
 #include <sstream>
@@ -18,7 +16,7 @@ using namespace std;
 Banker::Banker() {}
 Banker::~Banker() {}
 
-int Banker::getIDs(int &id)
+int Banker::getIDs(int &id) //converts 5 digit ID to account and fund IDs.
 {
     int temp = id;
     id/=10;
@@ -27,6 +25,7 @@ int Banker::getIDs(int &id)
 
 bool Banker::readTransactionsFromFile(string fileName)
 {
+    // Reads transactions in the input file and stores them as strings in the queue
     string temp;
     ifstream inFile;
     inFile.open(fileName);
@@ -50,7 +49,7 @@ bool Banker::readTransactionsFromFile(string fileName)
 
 void Banker::processTransactions()
 {
-//  Processes all transactions in the queue
+//  Parses and processes all transactions in the queue
 	string transaction;
 	while(!txns.empty())
 	{
@@ -143,10 +142,10 @@ void Banker::processTransactions()
 void Banker::printOutBalances()
 {
 	// Prints out all account balances
-    ofstream outfile;
+   	ofstream outfile;
 	outfile.open("BankTransOut.txt", std::ios_base::app);
-	outfile << "\nProcessing Done. Final Balances\n";
-    outfile.close();
+	outfile << "\nProcessing Done. Final Balances.\n";
+    	outfile.close();
 	accounts.Display();
 }
 
