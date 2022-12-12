@@ -1,8 +1,9 @@
 #pragma once
-#include <iostream>
-#include <cmath>
-#include <string>
 #include "Funds.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 using namespace std;
 
 const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond",
@@ -13,7 +14,7 @@ const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bo
 class BankAccount
 {
 	public:
-
+		Funds funds[10];
 		BankAccount();
 		BankAccount(string last, string first, int id);
 		~BankAccount();
@@ -33,16 +34,15 @@ class BankAccount
 		void setID(int newID);
 
 		void printAccountHistory();
+		void printSingleFundHistory(int fundID);
 
 
 	private:
-		Funds funds[10];
 		string lastname;
 		string firstname;
 		int id;
 };
 
-// 		void printSingleFundHistory();
 
 // 		bool addToFundHistory(int fundID, string txn);
 

@@ -8,7 +8,9 @@
 #include <queue>
 #include <string>
 #include "BSTree.h"
-#include "TransactionProcessing.h"
+#include "BSTree.cpp"
+#include "Transactions.h"
+#include "Transaction.cpp"
 using namespace std;
 
 class Banker
@@ -16,13 +18,14 @@ class Banker
 	private:
 		BSTree accounts;
 		queue<string> txns;
+		Transactions processor;
 	public:
 		Banker();
 		~Banker();
 
 		bool readTransactionsFromFile(string fileName);
-		bool processTransactions();
-		bool printOutBalances();
+		void processTransactions();
+		void printOutBalances();
 
 		int getIDs(int &id);
 };

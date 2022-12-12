@@ -5,11 +5,12 @@
 
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <cmath>
 #include <string>
 #include <queue>
 #include <vector>
-#include "Transactions.h"
+#include "BankAccount.h"
 
 using namespace std;
 
@@ -27,10 +28,10 @@ class Funds
         void setFundName(string name1);
         void setBalance(int balance1);
 
-        bool addMoney(int amt);
-        bool subtractMoney(int amt);
+        bool depositMoney(int amt);
+        bool withdrawMoney(int amt);
+        bool withdrawPossible(int amount);
         bool addToHistory(string txn);
-    	// bool addToHistoryWithError(string txn); // Placeholder
         void printFundHistory();
         
 

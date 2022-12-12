@@ -1,6 +1,10 @@
 #include "Funds.h"
-
-
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <string>
+#include <queue>
+#include <vector>
 using namespace std;
 
 Funds :: Funds()
@@ -43,23 +47,25 @@ void Funds :: setBalance(int balance1)
     balance = balance1;
 }
 
-bool Funds :: addMoney(int amt)
+bool Funds :: depositMoney(int amt)
 {
     balance += amt;
     return true;
 }
 
-bool Funds :: subtractMoney(int amt)
+bool Funds :: withdrawMoney(int amt)
 {
-    if(amt > balance)
-    {
-        return false;
-    }else{
-        balance -= amt;
-        return true;
-    }
-    
+    balance -= amt;
+    return true;
+}
 
+bool Funds::withdrawPossible(int amount)
+{
+	if(balance < amount)
+	{
+		return false;
+	}
+	return true;
 }
 
 bool Funds :: addToHistory(string txn)
@@ -68,23 +74,19 @@ bool Funds :: addToHistory(string txn)
     return true;
 }
 
-// bool Fund::addToHistoryWithError(string txn)  // Placeholder. I think we need to need to include failed transactions in history too
-// {
-// 	string temp = txn + " (Failed)";
-// 	history.push_back(temp);
-// 	return true;
-// }
 
 void Funds :: printFundHistory()
 {
-    if(history.size() <= 0)
+    if(history.size() > 0)
     {
-        cout << "No history" << endl;
-    }else{
+        ofstream outfile;
+        outfile.open("BankTransOut.txt", std::ios_base::app);
+        outfile << name << ": $" << balance << "\n";
         for(int i = 0; i < history.size(); i++)
         {
-            cout << history[i] << endl;
+            outfile << " " << history[i] << endl;
         }
+        outfile.close();
     }
         
 }

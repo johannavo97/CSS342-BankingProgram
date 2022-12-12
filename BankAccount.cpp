@@ -1,48 +1,41 @@
 #include "BankAccount.h"
-#include "Fund.h"
+#include "Funds.h"
+#include "Funds.cpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
-// const string FUND_TYPES[10] = {"Money Market","Prime Money Market","Long-Term Bond","Short-Term Bond",
-// 								"500 Index Fund","Capital Value Fund","Growth Equity Fund","Growth Index Fund",
-// 								"Value Fund","Value Stock Index"};
-
-bool BankAccount::coveringFundsInSameAccount(int fund1, int secondaryFund, int amount, int fund2, string txn);
-bool BankAccount::coveringFunds(int fund1, int amount, int fund2, string txn);
-
-// ============== Constructor/Destructors =============
-
-BankAccount::BankAccount() : last(""), first(""), id(0) {}
+BankAccount::BankAccount() : lastname(""), firstname(""), id(0) {}
 
 BankAccount::BankAccount(string last, string first, int id)
 {
 	this->lastname = last;
 	this->firstname = first;
-	this->accountID = id;
+	this->id = id;
 	for (int i = 0; i < 10; i < i++)
 	{
-		funds[i].setFundType(FUND_TYPES[i]);
-		funds[i].setFundBalance(0);
+		funds[i].setFundName(FUND_TYPES[i]);
+		funds[i].setBalance(0);
 	}
 }
 
 BankAccount::~BankAccount(){}
 
-// ============ Accessor Functions =================
-// ============ Getter/Setters =====================
 
-int BankAccount::getLastName() const
+string BankAccount::getLastName() const
 {
 	return lastname;
 }
 
-int BankAccount::getFirstName() const
+string BankAccount::getFirstName() const
 {
 	return firstname;
 }
 
 int BankAccount::getID() const
 {
-	return accountID;
+	return this->id;
 }
 
 void BankAccount::setLastName(string lname)
@@ -52,12 +45,12 @@ void BankAccount::setLastName(string lname)
 
 void BankAccount::setFirstName(string fname)
 {
-	this->firstname = lname;
+	this->firstname = fname;
 }
 
-void BankAccount::setID(string id)
+void BankAccount::setID(int newID)
 {
-	this->accountID = id;
+	this->id = newID;
 }
 
 int BankAccount::getAccountBalance() const
@@ -77,7 +70,7 @@ int BankAccount::getAccountBalance() const
 
 string BankAccount::getSubAccName(int fundID) const
 {
-	return this->funds[fundID].getType();
+	return this->funds[fundID].getFundName();
 }
 
 int BankAccount::getSubAccBalance(int fundID) const
@@ -171,19 +164,24 @@ int BankAccount::getSubAccBalance(int fundID) const
 
 void BankAccount::printAccountHistory()
 {
-
-	cout << "Transaction History for " << this->firstname << this->lastname << " by fund.\n"
+	ofstream outfile;
+	outfile.open("BankTransOut.txt", std::ios_base::app);
+	outfile << "Transaction History for " << this->firstname << " " << this->lastname << " by fund.\n";
+	outfile.close();
 	for(int i = 0; i < 10; i++)
 	{
 		funds[i].printFundHistory();
 	}
 }
 
-// void BankAccount::printSingleFundHistory(int fundID)
-// {	
-// 	cout << "Transaction History for " << this->firstname << this->lastname << " " << funds[fundID] << ": $" << funds[fundID].getBalance() << "\n";
-// 	funds[fundID].printFundHistory(); 
-// }
+void BankAccount::printSingleFundHistory(int fundID)
+{	
+	ofstream outfile;
+	outfile.open("BankTransOut.txt", std::ios_base::app);
+	outfile << "Transaction History for " << this->firstname << " " << this->lastname << " " << this->funds[fundID].getFundName() << ": $" << this->funds[fundID].getBalance() << endl;
+	outfile.close();
+	funds[fundID].printFundHistory(); 
+}
 
 // =============== Add to history ==========================
 

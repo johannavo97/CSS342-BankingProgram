@@ -66,7 +66,10 @@ bool BSTree::Retrieve(const int &id, BankAccount *&acc) const
             search = true;
         }
     }
-    cerr << "ERROR: Account Number " << id << " Cannot Be Found" << endl;
+    ofstream outfile;
+    outfile.open("BankTransOut.txt", std::ios_base::app);
+    outfile << "ERROR: Account " << id << " not Found. Transaction refused" << endl;
+    outfile.close();
     return false;
 }
 
@@ -99,9 +102,7 @@ void BSTree::Display() const
 }
 
 void BSTree::PrintHelper(Node *current) const{
-    if (current != nullptr) {
-        PrintHelper(current->left);
-
+    if (current != NULL) {
         ofstream outfile;
         outfile.open("BankTransOut.txt", std::ios_base::app);
 
@@ -115,8 +116,10 @@ void BSTree::PrintHelper(Node *current) const{
                     << ": $" << current->pAcct->getSubAccBalance(i)
                     << endl;
         }
-        outfile << endl;
         PrintHelper(current->right);
+        PrintHelper(current->left);
+        outfile << endl;
+
         outfile.close();
     }
 }
@@ -159,7 +162,10 @@ bool BSTree::InsertHelper(Node *current, BankAccount *insert)
     }
     else // Displays error if account is already in the BST
     {
-        cerr << "ERROR: Account " << insert->getID() << " is already open. Transaction refused." << endl;
+        ofstream outfile;
+        outfile.open("BankTransOut.txt", std::ios_base::app);
+        outfile << "ERROR: Account " << insert->getID() << " is already open. Transaction refused." << endl;
+        outfile.close();
         return false;
     }
 }
