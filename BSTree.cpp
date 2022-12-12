@@ -16,15 +16,21 @@ bool BSTree::Insert(BankAccount *accInsert)
     //check valid ID Number 
     if (insertAccountID < 1000 || insertAccountID > 9999)
     {
-        cerr << "ERROR: Account ID Number "<< insertAccountID <<" is not Valid" << endl;
+        ofstream outfile;
+        outfile.open("BankTransOut.txt", std::ios_base::app);
+        outfile << "ERROR: Account ID Number "<< insertAccountID << " is not valid. Account cannot be opened." << endl;
+        outfile.close();
         return false;
     }
 
     // Base case or if empty
     if (root == nullptr)
     {
-        root = new Node;
-        root->pAcct = accInsert;
+        Node *temp = new Node();
+        temp->pAcct = accInsert;
+        temp->right = NULL;
+        temp->left = NULL;
+        root = temp;
         return true;
     }
     else
@@ -64,7 +70,7 @@ bool BSTree::Retrieve(const int &id, BankAccount *&acc) const
     }
     ofstream outfile;
     outfile.open("BankTransOut.txt", std::ios_base::app);
-    outfile << "ERROR: Account " << id << " not Found. Transaction refused" << endl;
+    outfile << "ERROR: Account " << id << " not Found. Transaction refused." << endl;
     outfile.close();
     return false;
 }
@@ -90,19 +96,21 @@ bool BSTree::isEmpty() const
 
 void BSTree::Display() const
 {
+    ofstream outfile;
+    outfile.open("BankTransOut.txt", std::ios_base::app);
     if (root == nullptr)
     {
-        cerr << "ERROR: ACCOUNT LIST IS EMPTY" << endl;
+        outfile << "ERROR: ACCOUNT LIST IS EMPTY" << endl;
+        outfile.close();
     }
-    PrintHelper(root);
+    PrintHelper(root, outfile);
+    outfile.close();
 }
 
-void BSTree::PrintHelper(Node *current) const{
+void BSTree::PrintHelper(Node *current, ofstream &outfile) const{
     if (current != NULL) {
-        ofstream outfile;
-        outfile.open("BankTransOut.txt", std::ios_base::app);
-        outfile << current->pAcct->getLastName() << " ";
-        outfile << current->pAcct->getFirstName();
+
+        outfile << current->pAcct->getFirstName() << " " << current->pAcct->getLastName();
         outfile << " Account ID: ";
         outfile << current->pAcct->getID() << endl;
 
@@ -112,10 +120,8 @@ void BSTree::PrintHelper(Node *current) const{
                     << endl;
         }
         outfile << endl;
-        PrintHelper(current->right);
-        PrintHelper(current->left);
-        outfile << endl;
-        outfile.close();
+        PrintHelper(current->right, outfile);
+        PrintHelper(current->left, outfile);
     }
 }
 
