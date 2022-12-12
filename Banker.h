@@ -1,8 +1,6 @@
-// Testing this structure?
-//
-//
-//
-
+// William Bach
+// CSS342 Fall22
+// Program 5 - Jolly Banker
 #pragma once
 #include <iostream>
 #include <queue>
@@ -16,9 +14,10 @@ using namespace std;
 class Banker
 {
 	private:
-		BSTree accounts;
-		queue<string> txns;
-		Transactions processor;
+		BSTree accounts; // Binary search tree where accounts will be stored
+		queue<string> txns; // Queue of transactions strings
+		// Private instance of transactions class to process account openings, desposits, withdrawals and transfers
+		Transactions processor; 
 	public:
 		Banker();
 		~Banker();
