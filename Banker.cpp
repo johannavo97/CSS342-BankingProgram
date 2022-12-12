@@ -63,7 +63,7 @@ void Banker::processTransactions()
 			int id;
 			string last, first;
 			s >> last >> first >> id;
-			processor.openAccount(accounts, first, last, id);
+			processor.openAccount(accounts, last, first, id);
 
 		}
 		else if(typeOfTxn == "D")
