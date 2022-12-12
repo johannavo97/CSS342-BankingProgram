@@ -36,5 +36,5 @@ class BSTree
 		// Insert recursive helper - has to be AFTER Node has been declared
 		bool InsertHelper(Node *cur, BankAccount *insert);
 		/// Display helper - traverses inorder
-		void PrintHelper(Node *printNode) const;
+		void PrintHelper(Node *printNode, ofstream &outfile) const;
 };
