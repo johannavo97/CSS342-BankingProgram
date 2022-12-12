@@ -84,7 +84,7 @@ void Funds :: printFundHistory()
         outfile << name << ": $" << balance << "\n";
         for(int i = 0; i < history.size(); i++)
         {
-            outfile << " " << history[i] << endl;
+            outfile << "  " << history[i] << endl;
         }
         outfile.close();
     }

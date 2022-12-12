@@ -101,21 +101,20 @@ void BSTree::PrintHelper(Node *current) const{
     if (current != NULL) {
         ofstream outfile;
         outfile.open("BankTransOut.txt", std::ios_base::app);
-
         outfile << current->pAcct->getLastName() << " ";
         outfile << current->pAcct->getFirstName();
         outfile << " Account ID: ";
         outfile << current->pAcct->getID() << endl;
 
         for (int i = 0; i < 10; i++) {
-            outfile << "        " << current->pAcct->getSubAccName(i)
+            outfile << "    " << current->pAcct->getSubAccName(i)
                     << ": $" << current->pAcct->getSubAccBalance(i)
                     << endl;
         }
+        outfile << endl;
         PrintHelper(current->right);
         PrintHelper(current->left);
         outfile << endl;
-
         outfile.close();
     }
 }
