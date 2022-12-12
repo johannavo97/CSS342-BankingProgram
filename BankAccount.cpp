@@ -13,7 +13,7 @@ BankAccount::BankAccount(string last, string first, int id)
 	this->lastname = last;
 	this->firstname = first;
 	this->id = id;
-	for (int i = 0; i < 10; i < i++)
+	for (int i = 0; i < 10; i++)
 	{
 		funds[i].setFundName(FUND_TYPES[i]);
 		funds[i].setBalance(0);
