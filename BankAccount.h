@@ -1,3 +1,6 @@
+// William Bach
+// CSS342 Fall22
+// Program 5 - Jolly Banker
 #pragma once
 #include "Funds.h"
 #include <iostream>
@@ -24,8 +27,6 @@ class BankAccount
 		int getID() const;
 		int getAccountBalance() const;
 	
-// 		Fund getFund(int fundID) const;
-	
 		string getSubAccName(int fundID) const;
 		int getSubAccBalance(int fundID) const;
 
@@ -42,14 +43,3 @@ class BankAccount
 		string firstname;
 		int id;
 };
-
-
-// 		bool addToFundHistory(int fundID, string txn);
-
-		// bool deposit(int amount, int fundID);
-		// bool withdraw(int amount, int fundID);
-		// bool transferFunds(int fund1, int amount, int fund2);
-
-
-		// bool coveringFunds(int fund1, int amount, int fund2, string txn);
-		// bool coveringFundsInSameAccount(int fund1, int secondaryFund, int amount, int fund2, string txn);
