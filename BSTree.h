@@ -3,7 +3,6 @@
 // Created on December 1, 2022
 // A part of Program5 JollyBanker
 #pragma once
-#include "BankAccount.h"
 #include "BankAccount.cpp"
 #include "Funds.h"
 using namespace std;
