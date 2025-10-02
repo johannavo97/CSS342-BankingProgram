@@ -1,4 +1,3 @@
-// William Bach
 // CSS342 Fall22
 // Program 5 - Jolly Banker
 #include "BankAccount.h"
